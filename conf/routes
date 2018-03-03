@@ -1,0 +1,24 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+
+# Rutas propias del aplicativo PetStore
+GET  /mascotas  controllers.HomeController.getMascotas
+POST  /insertar  controllers.HomeController.insertarMascota
+PUT  /actualizar  controllers.HomeController.actualizarMascota
+DELETE  /eliminar/:id  controllers.HomeController.removerMascota(id: Int)
+
+# Rutas propias del aplicativo PetStore para la version con MySQL
+GET  /mascotasSQL  controllers.HomeController.getMascotasSQL
+POST  /insertarSQL  controllers.HomeController.insertarMascotaSQL
+PUT  /actualizarSQL  controllers.HomeController.actualizarMascotaSQL
+DELETE  /eliminarSQL/:id  controllers.HomeController.removerMascotaSQL(id: Int)
+GET  /mascotasSQLid/:id  controllers.HomeController.getMascotaSQLid(id: Int)
